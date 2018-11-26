@@ -22,13 +22,16 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <input
-          type="text"
-          value={this.state.searchBarText}
-          onClick={this.handleClick}
-          onChange={this.handleChange}
-        />
-        <p>{this.state.searchBarText}</p>
+        <form>
+          <input
+            type="text"
+            value={this.state.searchBarText}
+            onClick={this.handleClick}
+            onChange={this.handleChange}
+          />
+          <input type="submit" value="OK" />
+          <p>{this.state.searchBarText}</p>
+        </form>
       </div>
     );
   }
