@@ -4,14 +4,39 @@ class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchBarText: "Search a location"
+      searchBarText: "Search a location",
+      weather: null
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleGetWeatherSubmit = this.handleGetWeatherSubmit.bind(this);
+    this.getWeather = this.getWeather.bind(this);
+  }
+
+  getWeather(searchText) {
+    fetch(
+      `http://api.apixu.com/v1/current.json?key=166ffdd35a504c49a06190115181411&q=${searchText}`
+    )
+      .then(response => {
+        return response.json();
+      })
+      .then(weather => {
+        this.setState({ weather: weather });
+        this.props.onGetWeatherSubmit(
+          this.state.searchBarText,
+          this.state.weather
+        );
+      });
+  }
+
+  handleGetWeatherSubmit(e) {
+    this.getWeather(this.state.searchBarText);
+    e.preventDefault();
+    this.props.onGetWeatherSubmit(this.state.searchBarText);
   }
 
   handleClick(e) {
-    if (this.state.searchBarText == "Search a location") {
+    if (this.state.searchBarText === "Search a location") {
       this.setState({ searchBarText: "" });
     }
   }
@@ -22,7 +47,7 @@ class SearchBar extends Component {
   render() {
     return (
       <div>
-        <form>
+        <form onSubmit={this.handleGetWeatherSubmit}>
           <input
             type="text"
             value={this.state.searchBarText}
@@ -30,7 +55,6 @@ class SearchBar extends Component {
             onChange={this.handleChange}
           />
           <input type="submit" value="OK" />
-          <p>{this.state.searchBarText}</p>
         </form>
       </div>
     );
