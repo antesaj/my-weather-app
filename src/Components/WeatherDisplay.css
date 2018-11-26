@@ -1,0 +1,12 @@
+.weatherHeader {
+  display: inline;
+  white-space: nowrap;
+}
+
+.conditionIcon {
+  float: none;
+}
+
+.headerText {
+  float: none;
+}

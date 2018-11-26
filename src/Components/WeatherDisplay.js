@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "./WeatherDisplay.css";
+
 class WeatherDisplay extends Component {
   constructor(props) {
     super(props);
@@ -9,9 +11,9 @@ class WeatherDisplay extends Component {
     if (this.props.weather) {
       // let image = "http:" + this.props.weather.current.condition.icon;
       return (
-        <div>
+        <div className="weatherHeader">
           <img src={`http:${this.props.weather.current.condition.icon}`} />
-          <div>
+          <div className="headerText">
             <h3>
               {this.props.weather.location.name},{" "}
               {this.props.weather.location.region}

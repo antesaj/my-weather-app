@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import "./SearchBar.css";
+
 class SearchBar extends Component {
   constructor(props) {
     super(props);
@@ -49,12 +51,13 @@ class SearchBar extends Component {
       <div>
         <form onSubmit={this.handleGetWeatherSubmit}>
           <input
+            className="searchBar"
             type="text"
             value={this.state.searchBarText}
             onClick={this.handleClick}
             onChange={this.handleChange}
           />
-          <input type="submit" value="OK" />
+          <input className="okButton" type="submit" value="OK" />
         </form>
       </div>
     );

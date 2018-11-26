@@ -4,6 +4,8 @@ import Header from "./Components/Header";
 import SearchBar from "./Components/SearchBar";
 import WeatherDisplay from "./Components/WeatherDisplay";
 
+import "./App.css";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -53,7 +55,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className="main">
         <Header />
         <SearchBar onGetWeatherSubmit={this.handleGetWeatherSubmit} />
         <WeatherDisplay weather={this.state.weather} />
