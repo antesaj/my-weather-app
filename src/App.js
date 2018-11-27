@@ -4,7 +4,8 @@ import Header from "./Components/Header";
 import SearchBar from "./Components/SearchBar";
 import WeatherDisplay from "./Components/WeatherDisplay";
 
-import keys from "./config/keys.js";
+// import keys from "./config/keys.js";
+const WEATHER_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 import "./App.css";
 
 class App extends Component {
@@ -40,7 +41,7 @@ class App extends Component {
 
   getWeather(location) {
     fetch(
-      `https://api.apixu.com/v1/current.json?key=${keys.apixu}&q=${location}`
+      `https://api.apixu.com/v1/current.json?key=${WEATHER_KEY}&q=${location}`
     )
       .then(response => {
         return response.json();
