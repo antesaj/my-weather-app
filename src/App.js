@@ -4,7 +4,9 @@ import Header from "./Components/Header";
 import SearchBar from "./Components/SearchBar";
 import WeatherDisplay from "./Components/WeatherDisplay";
 
+import keys from "../config/keys.js";
 import "./App.css";
+
 
 class App extends Component {
   constructor(props) {
@@ -39,7 +41,7 @@ class App extends Component {
 
   getWeather(location) {
     fetch(
-      `http://api.apixu.com/v1/current.json?key=166ffdd35a504c49a06190115181411&q=${location}`
+      `http://api.apixu.com/v1/current.json?key=${keys.apixu}&q=${location}`
     )
       .then(response => {
         return response.json();

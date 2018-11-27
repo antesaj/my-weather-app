@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 
+import keys from "../config/keys.js";
 import "./SearchBar.css";
 
 class SearchBar extends Component {
@@ -17,7 +18,7 @@ class SearchBar extends Component {
 
   getWeather(searchText) {
     fetch(
-      `http://api.apixu.com/v1/current.json?key=166ffdd35a504c49a06190115181411&q=${searchText}`
+      `http://api.apixu.com/v1/current.json?key=${keys.apixu}&q=${searchText}`
     )
       .then(response => {
         return response.json();
