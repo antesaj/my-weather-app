@@ -4,9 +4,8 @@ import Header from "./Components/Header";
 import SearchBar from "./Components/SearchBar";
 import WeatherDisplay from "./Components/WeatherDisplay";
 
-import keys from "../config/keys.js";
+import keys from "./config/keys.js";
 import "./App.css";
-
 
 class App extends Component {
   constructor(props) {
