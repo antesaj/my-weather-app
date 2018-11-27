@@ -51,6 +51,7 @@ class SearchBar extends Component {
       <div>
         <form onSubmit={this.handleGetWeatherSubmit}>
           <input
+            maxLength="30"
             className="searchBar"
             type="text"
             value={this.state.searchBarText}
