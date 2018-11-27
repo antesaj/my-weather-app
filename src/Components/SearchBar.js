@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 
+import "./SearchBar.css";
+
 // import keys from "../config/keys.js";
 const WEATHER_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-import "./SearchBar.css";
 
 class SearchBar extends Component {
   constructor(props) {

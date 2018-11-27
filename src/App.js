@@ -4,9 +4,10 @@ import Header from "./Components/Header";
 import SearchBar from "./Components/SearchBar";
 import WeatherDisplay from "./Components/WeatherDisplay";
 
+import "./App.css";
+
 // import keys from "./config/keys.js";
 const WEATHER_KEY = process.env.REACT_APP_WEATHER_API_KEY;
-import "./App.css";
 
 class App extends Component {
   constructor(props) {
