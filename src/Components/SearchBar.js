@@ -26,18 +26,34 @@ class SearchBar extends Component {
         return response.json();
       })
       .then(weather => {
-        this.setState({ weather: weather });
-        this.props.onGetWeatherSubmit(
-          this.state.searchBarText,
-          this.state.weather
-        );
+        if (weather.current) {
+          this.setState({ weather: weather });
+          this.props.onGetWeatherSubmit(
+            this.state.searchBarText,
+            this.state.weather
+          );
+        } else {
+          // Handle this case, must be an error.
+        }
       });
   }
 
   handleGetWeatherSubmit(e) {
-    this.getWeather(this.state.searchBarText);
+    if (this.validateInput(this.state.searchBarText)) {
+      this.getWeather(this.state.searchBarText);
+      this.props.onGetWeatherSubmit(this.state.searchBarText);
+    }
+    this.validateInput(this.state.searchBarText);
+    // this.getWeather(this.state.searchBarText);
     e.preventDefault();
-    this.props.onGetWeatherSubmit(this.state.searchBarText);
+    // this.props.onGetWeatherSubmit(this.state.searchBarText);
+  }
+
+  validateInput(input) {
+    return (
+      /^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$/.test(input) ||
+      (input.length <= 30 && /^[A-Za-z]+$/.test(input))
+    );
   }
 
   handleClick(e) {

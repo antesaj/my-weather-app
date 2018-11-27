@@ -12,7 +12,9 @@ class WeatherDisplay extends Component {
       // let image = "http:" + this.props.weather.current.condition.icon;
       return (
         <div className="weatherHeader">
-          <img src={`http:${this.props.weather.current.condition.icon}`} />
+          <div className="conditionIcon">
+            <img src={`http:${this.props.weather.current.condition.icon}`} />
+          </div>
           <div className="headerText">
             <h3>
               {this.props.weather.location.name},{" "}

@@ -3,6 +3,9 @@ body {
 }
 
 .main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
   background-color: #2c3531;
   color: #d1e8e2;
