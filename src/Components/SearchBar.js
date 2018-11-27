@@ -57,7 +57,7 @@ class SearchBar extends Component {
             onClick={this.handleClick}
             onChange={this.handleChange}
           />
-          <input className="okButton" type="submit" value="OK" />
+          <input className="okButton" type="submit" value="&#10004;" />
         </form>
       </div>
     );
