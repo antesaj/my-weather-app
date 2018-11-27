@@ -18,7 +18,7 @@ class SearchBar extends Component {
 
   getWeather(searchText) {
     fetch(
-      `http://api.apixu.com/v1/current.json?key=${keys.apixu}&q=${searchText}`
+      `https://api.apixu.com/v1/current.json?key=${keys.apixu}&q=${searchText}`
     )
       .then(response => {
         return response.json();

@@ -41,7 +41,7 @@ class App extends Component {
 
   getWeather(location) {
     fetch(
-      `http://api.apixu.com/v1/current.json?key=${keys.apixu}&q=${location}`
+      `https://api.apixu.com/v1/current.json?key=${keys.apixu}&q=${location}`
     )
       .then(response => {
         return response.json();
