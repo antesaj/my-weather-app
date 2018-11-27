@@ -52,7 +52,7 @@ class SearchBar extends Component {
   validateInput(input) {
     return (
       /^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$/.test(input) ||
-      (input.length <= 30 && /^[A-Za-z]+$/.test(input))
+      (input.length <= 30 && /^[A-Za-z ]+$/.test(input))
     );
   }
 
