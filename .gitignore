@@ -10,8 +10,6 @@
 
 # production
 /build
-/config
-keys.js
 
 # misc
 .DS_Store
