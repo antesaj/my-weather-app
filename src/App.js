@@ -4,6 +4,7 @@ import Header from "./Components/Header";
 import SearchBar from "./Components/SearchBar";
 import WeatherDisplay from "./Components/WeatherDisplay";
 
+
 import "./App.css";
 
 // import keys from "./config/keys.js";
@@ -42,7 +43,7 @@ class App extends Component {
 
   getWeather(location) {
     fetch(
-      `https://api.apixu.com/v1/current.json?key=${WEATHER_KEY}&q=${location}`
+      `https://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY}&q=${location}&days=7`
     )
       .then(response => {
         return response.json();
@@ -62,6 +63,7 @@ class App extends Component {
         <Header />
         <SearchBar onGetWeatherSubmit={this.handleGetWeatherSubmit} />
         <WeatherDisplay weather={this.state.weather} />
+        
       </div>
     );
   }

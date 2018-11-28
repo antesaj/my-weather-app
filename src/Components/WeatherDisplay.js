@@ -1,10 +1,21 @@
 import React, { Component } from "react";
 
+import ForecastBlock from "./Forecast/ForecastBlock";
+
 import "./WeatherDisplay.css";
 
 class WeatherDisplay extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showingForecast: false
+    }
+    
+    this.toggleSubmit = this.toggleSubmit.bind(this);
+  }
+  
+  toggleSubmit() {
+    this.setState({ showingForecast: !this.state.showingForecast })
   }
 
   render() {
@@ -12,20 +23,29 @@ class WeatherDisplay extends Component {
       // let image = "http:" + this.props.weather.current.condition.icon;
       return (
         <div className="weatherHeader">
-          <div className="conditionIcon">
-            <img src={`http:${this.props.weather.current.condition.icon}`} />
-          </div>
-          <div className="headerText">
-            <h3>
-              {this.props.weather.location.name},{" "}
-              {this.props.weather.location.region}
-            </h3>
-            <b>
-              {this.props.weather.current.temp_f}&deg;F{" "}
-              {this.props.weather.current.condition.text}
-            </b>
-          </div>
+          <span className="currentWeather">
+            <img src={`http:${this.props.weather.current.condition.icon}`} alt="cond" />
+            <div className="headerText">
+              <p>
+                {this.props.weather.location.name},{" "}
+                {this.props.weather.location.region}
+              </p>
+              <p>
+                {this.props.weather.current.temp_f}&deg;F{" "}
+                {this.props.weather.current.condition.text}
+              </p>
+              
+            </div>
+            <button className="fcstButton" onClick={this.toggleSubmit}>Forecast</button>
+             
+          </span>
+       
+          
+        <ForecastBlock 
+            weather={this.props.weather} 
+            showingForecast={this.state.showingForecast}/>
         </div>
+        
       );
     } else {
       return "";

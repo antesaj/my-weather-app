@@ -20,7 +20,7 @@ class SearchBar extends Component {
 
   getWeather(searchText) {
     fetch(
-      `https://api.apixu.com/v1/current.json?key=${WEATHER_KEY}&q=${searchText}`
+      `https://api.apixu.com/v1/forecast.json?key=${WEATHER_KEY}&q=${searchText}&days=7`
     )
       .then(response => {
         return response.json();
@@ -36,6 +36,8 @@ class SearchBar extends Component {
           // Handle this case, must be an error.
         }
       });
+      
+      
   }
 
   handleGetWeatherSubmit(e) {
@@ -51,7 +53,7 @@ class SearchBar extends Component {
 
   validateInput(input) {
     return (
-      /^(\-?\d+(\.\d+)?),\s*(\-?\d+(\.\d+)?)$/.test(input) ||
+      /^(-?\d+(\.\d+)?),\s*(-?\d+(\.\d+)?)$/.test(input) ||
       (input.length <= 30 && /^[A-Za-z ]+$/.test(input))
     );
   }

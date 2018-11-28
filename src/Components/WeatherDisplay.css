@@ -1,16 +1,34 @@
 .weatherHeader {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   white-space: nowrap;
   justify-content: center;
   margin-top: 10px;
   margin-right: 10px;
+  align-items: center;
 }
 
-.conditionIcon {
-  padding: 13px 10px;
+.currentWeather {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.fcstButton {
+  height: 33px;
+  margin-left: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #d9b08c;
+  color: #2c3531;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.fcstButton:hover {
+  color: #d1e8e2;
 }
 
 .headerText {
-  float: none;
+  font-size: 20px;
 }
