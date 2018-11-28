@@ -1,5 +1,10 @@
 .forecastTable {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     margin-top: 20px;
     font-family: "Slabo 27px", serif;
-    font-size: 25px;
+    font-size: 20px;
+    width: 80%;
+    margin-right: 200px;
 }
